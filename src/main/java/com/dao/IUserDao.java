@@ -6,7 +6,6 @@ import java.util.List;
 
 
 public interface IUserDao {
-    int deleteByPrimaryKey(Integer id);
 
     int insert(User record);
 
@@ -18,4 +17,8 @@ public interface IUserDao {
 
     int updateByPrimaryKey(User record);
     List<User> queryByName(String username);
+
+    List<User> getUserList();
+
+    int deleteUser(int id);
 }

@@ -4,14 +4,28 @@ public class Response {
     String msg;
     int code;
     Boolean isTure = true;
+    Object result;
+    public Object getResult() {
+        return result;
+    }
+    public void setResult(Object result) {
+        this.result = result;
+    }
 
     public Response() {
     }
-
-    public Response(String msg, int code, Boolean isTure) {
+    public Response(String msg, int code, Boolean isTure){
         this.msg = msg;
         this.code = code;
         this.isTure = isTure;
+
+    }
+
+    public Response(String msg, int code, Boolean isTure,Object result) {
+        this.msg = msg;
+        this.code = code;
+        this.isTure = isTure;
+        this.result=result;
     }
 
     public String getMsg() {
@@ -37,5 +51,8 @@ public class Response {
     public void setTure(Boolean ture) {
         isTure = ture;
     }
+
+
+
 
 }

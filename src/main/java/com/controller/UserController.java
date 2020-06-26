@@ -88,6 +88,46 @@ public class UserController {
         }
     }
 
+    // /user/showUser?id=1
+    @RequestMapping(value = "/showUser", method = RequestMethod.GET)
+    public Response toIndex(HttpServletRequest request) {
+        String username = request.getParameter("userName");
+        System.out.println("userName:" + username);
+        List<User> user = userService.queryByName(username);
+        if(user.size() == 0){
+            return new Response("用户名不存在", -1, false);
+        }else {
+        return new Response("成功",1,true,user);
+        }
+    }
+    @RequestMapping(value = "/getUserList",method = RequestMethod.POST)
+    public Response getUserList(){
+        List<User> UserList = userService.getUserList();
+        return new Response("查询成功",1,true,UserList);
+    }
+
+    @RequestMapping(value = "/deleteUser",method = RequestMethod.POST)
+    public Response deleteUser(@RequestBody User user){
+        int id=user.getId();
+        System.out.println(id);
+        if(id!=0){
+            int count = userService.deleteUser(id);
+            System.out.println(count);
+            if(count>0){
+                Response response = new Response("删除成功",1,true);
+                return response;
+            }else {
+                Response response = new Response("删除失败，请检查原因",-1,false);
+                return response;
+            }
+        }else {
+            Response response = new Response("删除失败，请传入商品id",-1,false);
+            return response;
+        }
+
+    }
+
+
 }
 
 
