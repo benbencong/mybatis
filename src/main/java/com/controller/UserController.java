@@ -89,7 +89,7 @@ public class UserController {
     }
 
     // /user/showUser?id=1
-    @RequestMapping(value = "/showUser", method = RequestMethod.GET)
+    @RequestMapping(value = "/showUser")
     public Response toIndex(HttpServletRequest request) {
         String username = request.getParameter("userName");
         System.out.println("userName:" + username);
@@ -100,7 +100,7 @@ public class UserController {
         return new Response("成功",1,true,user);
         }
     }
-    @RequestMapping(value = "/getUserList",method = RequestMethod.POST)
+    @RequestMapping(value = "/getUserList")
     public Response getUserList(){
         List<User> UserList = userService.getUserList();
         return new Response("查询成功",1,true,UserList);
