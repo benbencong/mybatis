@@ -84,7 +84,7 @@ public class UserController {
                 }
             }
         }else {
-            return new Response("登录失败：用户名密码不能为空",-1,false);
+            return new Response("登录失败：用户名或密码不能为空",-1,false);
         }
     }
 
@@ -117,11 +117,11 @@ public class UserController {
                 Response response = new Response("删除成功",1,true);
                 return response;
             }else {
-                Response response = new Response("删除失败，请检查原因",-1,false);
+                Response response = new Response("删除失败",-1,false);
                 return response;
             }
         }else {
-            Response response = new Response("删除失败，请传入商品id",-1,false);
+            Response response = new Response("删除失败，参数缺少",-1,false);
             return response;
         }
 

@@ -3,7 +3,16 @@ package com.model;
 public class Response {
     String msg;
     int code;
-    Boolean isTure = true;
+    Boolean isSuc = true;
+
+    public Boolean getSuc() {
+        return isSuc;
+    }
+
+    public void setSuc(Boolean suc) {
+        isSuc = suc;
+    }
+
     Object result;
     public Object getResult() {
         return result;
@@ -14,17 +23,17 @@ public class Response {
 
     public Response() {
     }
-    public Response(String msg, int code, Boolean isTure){
+    public Response(String msg, int code, Boolean isSuc){
         this.msg = msg;
         this.code = code;
-        this.isTure = isTure;
+        this.isSuc = isSuc;
 
     }
 
-    public Response(String msg, int code, Boolean isTure,Object result) {
+    public Response(String msg, int code, Boolean isSuc,Object result) {
         this.msg = msg;
         this.code = code;
-        this.isTure = isTure;
+        this.isSuc = isSuc;
         this.result=result;
     }
 
@@ -44,13 +53,6 @@ public class Response {
         this.code = code;
     }
 
-    public Boolean getTure() {
-        return isTure;
-    }
-
-    public void setTure(Boolean ture) {
-        isTure = ture;
-    }
 
 
 
